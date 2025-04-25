@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arduino Fan Control</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        button { padding: 15px 30px; font-size: 20px; margin: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Arduino Control Platform</h1>
+    <form action="/toggle_fan" method="get">
+        <button type="submit">Fan Button</button>
+    </form>
+    <form action="/toggle_mode" method="get">
+        <button type="submit">System Mode Button</button>
+    </form>
+    <div class="status">
+        <p>Temperature: <strong>{{ temperature }} °C</strong></p>
+        <p>System Mode: <strong>{{ mode }}</strong></p>
+        <p>Fan State: <strong>{{ fan }}</strong></p>
+      </div>
+</body>
+</html>

@@ -8,9 +8,7 @@ from datetime import datetime
 # ser = serial.Serial('/dev/cu.usbmodem142101', 9600, timeout=1)
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 time.sleep(3)  # give Arduino time to prepare
-
 # database connection
-
 # db = mysql.connector.connect(
 #     host="feenix-mariadb.swin.edu.au",
 #     user="s105385294",
