@@ -1,23 +1,19 @@
 import serial
 import pymysql
-# import mysql.connector
 import time
 from datetime import datetime
 
 # setting up serial connection
-# ser = serial.Serial('/dev/cu.usbmodem142101', 9600, timeout=1)
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 time.sleep(3)  # give Arduino time to prepare
+
 # database connection
-# db = mysql.connector.connect(
-#     host="feenix-mariadb.swin.edu.au",
-#     user="s105385294",
-#     password="311292",
-#     database="s105385294_db"
-# )
-# cursor = db.cursor()
-db = pymysql.connect(host="localhost", user="pi", password="",
-database="pot_db")
+db = pymysql.connect(
+    host="localhost",
+    user="xinzhe",
+    password="",
+    database="individual_assignment_db"
+)
 cursor = db.cursor()
 
 # create table if not exists

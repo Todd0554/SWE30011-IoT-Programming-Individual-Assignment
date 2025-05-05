@@ -5,21 +5,50 @@
     <title>Arduino Fan Control</title>
     <style>
         body { font-family: Arial; text-align: center; margin-top: 50px; }
-        button { padding: 15px 30px; font-size: 20px; margin: 15px; }
+        button { padding: 15px 30px; font-size: 18px; margin: 10px; }
+        table { margin: auto; border-collapse: collapse; margin-top: 30px; }
+        th, td { border: 1px solid #888; padding: 10px 20px; }
     </style>
 </head>
 <body>
-    <h1>Arduino Control Platform</h1>
-    <form action="/toggle_fan" method="get">
-        <button type="submit">Fan Button</button>
+    <h1>Arduino Control Panel</h1>
+
+    <form action="/toggle_fan" method="get" style="display:inline;">
+        <button type="submit">Toggle Fan</button>
     </form>
-    <form action="/toggle_mode" method="get">
-        <button type="submit">System Mode Button</button>
+    <form action="/toggle_mode" method="get" style="display:inline;">
+        <button type="submit">Toggle Mode</button>
     </form>
-    <div class="status">
+
+    <div class="status" style="margin-top: 30px;">
         <p>Temperature: <strong>{{ temperature }} °C</strong></p>
         <p>System Mode: <strong>{{ mode }}</strong></p>
         <p>Fan State: <strong>{{ fan }}</strong></p>
-      </div>
+    </div>
+
+    <form action="/delete_all" method="post" style="margin-top: 30px;">
+        <button type="submit" style="background-color:red; color:white;">Delete All Database Data</button>
+    </form>
+    
+    <h2>Fan State Change Log</h2>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>Temperature (°C)</th>
+            <th>Fan State</th>
+        </tr>
+        {% for row in fan_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
 </body>
 </html>
+
+
+ 
